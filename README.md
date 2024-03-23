@@ -17,4 +17,5 @@
 
 # This is our purpose: 
 - The goal of this topic is to share resources through a reliable communication formed between multiple networks within a linked connection amongst each other.
-- Another purpose of this project is to share different types of networks such as Local Area Network, Wide Area Network, Metropolitan Area Network, and Wirless Network. These networks enchance the communication with two or more nodes in which these will all be linked using wires to share data.  
+- Another purpose of this project is to share different types of networks such as Local Area Network, Wide Area Network, Metropolitan Area Network, and Wireless Network. These networks enchance the communication with two or more nodes in which these will all be linked using wires to share data.
+- We are trying to also understand the 7 layers of the OSI model have a very important purpose with computer networking and that it uses layers for visual representation of how a networking system functions. These layers have a protocol which can be interchanged very comfortably since model modifications don't influence other layers that change significantly. 
