@@ -17,4 +17,4 @@
 
 # This is our purpose: 
 - The goal of this topic is to share resources through a reliable communication formed between multiple networks within a linked connection amongst each other.
-- Another purpose of this project is to share different types 
+- Another purpose of this project is to share different types of networks such as Local Area Network, Wide Area Network, Metropolitan Area Network, and Wirless Network. These networks enchance the communication with two or more nodes in which these will all be linked using wires to share data.  
