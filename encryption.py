@@ -9,8 +9,8 @@ sys.path.insert(0, '../../python-p2p-network')
 
 from p2psecure.securenode import SecureNode 
 
-host     =
-port     =
+host     = "8000"
+port     = "8001"
 key_file = "secure_node.dat"
 
-if len(sys.argv 
+if len(sys.argv) 
