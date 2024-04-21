@@ -6,7 +6,7 @@
 
 # Our selected topic is computer networking
 
-# Our project should encompass software developmentm meticulous experimentation, and through analysis of outcomes. 
+# Our project should encompass software development, meticulous experimentation, and through analysis of outcomes. 
 
 # If this is possible, we need to steer clear of naturally-distribution challenges; we must aim for something that presents a substantial complexity. 
 
