@@ -15,4 +15,10 @@ host     = "8000"
 port     = "8001"
 key_file = "secure_node.dat"
 
-if len(sys.argv) 
+if len(sys.argv) > 1:
+  port = int(sys.argv[1])
+
+if len(sys.argv) > 2:
+  host = sys.argv[1]
+  port = int(sys.argv[2])
+
