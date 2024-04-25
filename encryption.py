@@ -15,10 +15,17 @@ host     = "8000"
 port     = "8001"
 key_file = "secure_node.dat"
 
+# this is our first node 
 if len(sys.argv) > 1:
   port = int(sys.argv[1])
 
+# this is our second node 
 if len(sys.argv) > 2:
   host = sys.argv[1]
   port = int(sys.argv[2])
+
+# then, we need to start the securenode 
+node = SecureNode(host, port) 
+
+key_file_exists
 
