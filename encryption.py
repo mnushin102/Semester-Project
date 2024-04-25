@@ -46,7 +46,11 @@ except IOError:
   
 # now, we need to do the node file to see if it exists with rest of out code 
 if (node_file_exists):
-  node.node_pair_load()
+  node.node_pair_load(node_file, getconnection.getconnection("What is your address to connect to your socket?").encode('utf8'))
+else:
+  print("New node, generating a new peer host/port, can take a few minutes.")
+  node.node_pair_generate()
+  address1 : getconnection.getconnection(
   
   
 
