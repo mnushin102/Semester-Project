@@ -1,4 +1,5 @@
-#Brandon and Meraj wrote this code 
+# Brandon and Meraj wrote this code 
+# CECS 327 Semester Project 
 import sys
 import time 
 import getpass
@@ -11,6 +12,10 @@ sys.path.insert(0, '../../python-p2p-network')
 from p2psecure.securenode import SecureNode 
 
 # these are our host and port network addresses 
+# host is for node 1 
+# port is for node 2
+self.host = host 
+self.port = port 
 host     = "8000"
 port     = "8001"
 key_file = "secure_node.dat"
@@ -27,5 +32,21 @@ if len(sys.argv) > 2:
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
-key_file_exists
+node_file_exists = False 
+try: 
+  with open(node_file, encoding="utf8") as f:
+    node_file_exists True: 
+
+except FileNotFoundError:
+    None 
+
+except IOError: 
+  print("File " + node_file + "not_accessible")  
+  exit 
+  
+# now, we need to do the node file to see if it exists with rest of out code 
+if (node_file_exists):
+  node.node_pair_load()
+  
+  
 
