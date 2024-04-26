@@ -52,7 +52,14 @@ else:
   node.node_pair_generate()
   address1 : getconnection.getconnection("Give connection to test your peer to peer address:").strip()
   address2 : getconnection.getconnection("Retype your address to reconnect your peer to peer socket:").strip()
-  if (address1 == address2)
+  if (address1 == address2):
+    node.node_pair_save(node_file, address1)
+      address1 = address2 = None 
+  else:
+    print("Addresses don't match peer to peer socket!")
+    exit 
+
+
   
   
 
