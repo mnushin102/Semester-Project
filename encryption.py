@@ -48,9 +48,11 @@ except IOError:
 if (node_file_exists):
   node.node_pair_load(node_file, getconnection.getconnection("What is your address to connect to your socket?").encode('utf8'))
 else:
-  print("New node, generating a new peer host/port, can take a few minutes.")
+  print("New node, generating a new peer host/port, can take a few minutes...")
   node.node_pair_generate()
-  address1 : getconnection.getconnection(
+  address1 : getconnection.getconnection("Give connection to test your peer to peer address:").strip()
+  address2 : getconnection.getconnection("Retype your address to reconnect your peer to peer socket:").strip()
+  if (address1 == address2)
   
   
 
