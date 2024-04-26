@@ -59,6 +59,13 @@ else:
     print("Addresses don't match peer to peer socket!")
     exit 
 
+# this is how we'll start our node
+node.start()
+node.debug = False 
+time.sleep(1)
+
+# 
+
 
   
   
