@@ -3,11 +3,14 @@
 # our reference for this is : https://youtu.be/IbzGL_tjmv4?si=jZF1ar4zTmfl6vtu
 import socket 
 
+# this is our known port address
 known_port = 80002
 
+# this is how we start our sockets 
 sock = socket.socket(socket.AF_IFNET, socket.SOCK_DGRAM)
 sock.bind(('0.0.0.0', 88888))
 
+# we need to make two while loops which are both true because we need to test if the address is going to the server 
 while True:
   clients = []
 
