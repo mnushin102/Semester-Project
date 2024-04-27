@@ -20,6 +20,7 @@ while True:
     print('Connection from: {}' .format(address))
     clients.append(address)
 
+    # this makes sure our socket is ready
     sock.sendto(b'ready', address)
     # this will check if both of our clients are ready 
     if len(clients) == 2:
