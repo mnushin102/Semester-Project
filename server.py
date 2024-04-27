@@ -16,12 +16,12 @@ while True:
 
   while True:
     data, address = sock.recvfrom(128)
-
+    # this will test our connection
     print('Connection from: {}' .format(address))
     clients.append(address)
 
     sock.sendto(b'ready', address)
-
+    # this will check if both of our clients are ready 
     if len(clients) == 2:
         print('we have both clients ready, sending details to each')
         break
@@ -32,6 +32,7 @@ while True:
     client2 = clients.pop()
     client2_address client2_port = client2
 
+    # finally, we need to test both our clients to see if they successfully sent a message from the server 
     sock.sendto('{} {} {}'.format(client1_address, client1_port, known_port).encode(), client2)
     sock.sendto('{} {} {}'.format(client2_address, client2_port, known_port).encode(), client1)
     
