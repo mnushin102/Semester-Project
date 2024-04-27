@@ -5,6 +5,8 @@ import time
 import getpass
 import socket 
 import threading 
+import ast
+import 
 sys.path.insert(0, '..')
 sys.path.insert(0, '../../python-p2p-network')
 
@@ -64,7 +66,38 @@ node.start()
 node.debug = False 
 time.sleep(1)
 
-# 
+# this will make sure if our node connects to our peer to peer socket successfully 
+running True: 
+while running:
+  # These will print our commands to test our peer to peer 
+  print("Commands: message, ping, status, add_to_host, add_to_port, connect_to_peer, debug, end")
+  s = input("Please select a command:")
+  # our first command is end 
+  if s == "end":
+    running = False 
+  # our second command is message 
+  elif s == "message":
+    node.send_message(input("Send message:"))
+  # our third command is ping 
+  elif s == "ping":
+    node.send_ping()
+  # our fourth command is status
+  elif s == "status"
+    node.send_status()
+  # our fifth command is add_to_host     
+  elif s == "add_to_host":
+    node.send_add_to_host()
+  # our sixth command is add_to_port
+  elif s == "add_to_port":
+    node.send_add_to_port
+  # our seventh command is connect_to_peer
+  elif s == "connect_to_peer":
+    node.send_connect_to_peer()
+  # our eight command is debug 
+  elif s == "debug":
+    node.send_debug()
+  
+
 
 
   
