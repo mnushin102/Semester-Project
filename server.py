@@ -26,7 +26,7 @@ while True:
         print('we have both clients ready, sending details to each')
         break
 
-    # now, we need to create our clients 
+    # now, we need to create both our clients 
     client1 = clients.pop()
     client1_address client1_port = client1
     client2 = clients.pop()
