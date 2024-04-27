@@ -21,6 +21,12 @@ host     = "8000"
 port     = "8001"
 key_file = "secure_node.dat"
 
+# this is our rendevous server 
+rendezvous = ('147.182.184.215', 55555)
+
+# this prints to our rendezvous server 
+print("connecting to rendezvous server")
+
 # this is our first node 
 if len(sys.argv) > 1:
   port = int(sys.argv[1])
