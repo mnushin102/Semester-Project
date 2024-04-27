@@ -1,3 +1,14 @@
 # we need to replace our ip address as appropriate 
 
-we'll run on machine 1
+we'll run on machine 1 (147.182.184.196)
+echo 'punch hole' | nc -u -p 80001 143.198.173.180 80002
+nc -u -l 80001
+
+we'll run on machine 2 (143.198.173.180)
+echo 'punch hole' | nc -u -p 80001 147.182.184.196 80002
+
+we'll run on machine 1 again (147.182.184.196)
+echo 'hello' | nc -u -p 80002 143.198.173.180 80001
+
+we'll run on machine 2 again (143.198.173.180)
+echo 'hello' | nc -u -p 80002 147.182.184.196 80001
