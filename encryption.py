@@ -95,7 +95,18 @@ while running:
     node.send_connect_to_peer()
   # our eight command is debug 
   elif s == "debug":
-    node.send_debug()
+    node.debug = not node.debug 
+
+elif (s == "connect_peer_to_peer"):
+    host = input("host address: ")
+    port = input("port address: ")
+    node.connect_with_node(host, port)
+
+else:
+    print("Command not found '" + s + " ' ")
+
+# finally, we'll end our node here 
+node.end()
   
 
 
