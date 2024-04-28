@@ -11,7 +11,31 @@ import msvcrt
 sys.path.insert(0, '..')
 sys.path.insert(0, '../../python-p2p-network')
 
-# first off, we need to create our public ip address 
+# these are our host and port network addresses 
+# host is for node 1 
+# port is for node 2
+self.host = host 
+self.port = port 
+host     = "8000"
+port     = "8001"
+key_file = "secure_node.dat"
+
+# this is our node imported 
+from p2psecure.securenode import SecureNode 
+
+# this is our first node 
+if len(sys.argv) > 1:
+  port = int(sys.argv[1])
+
+# this is our second node 
+if len(sys.argv) > 2:
+  host = sys.argv[1]
+  port = int(sys.argv[2])
+
+# then, we need to start the securenode 
+node = SecureNode(host, port) 
+
+# next, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 host = s.getsockname()[0]
@@ -64,36 +88,82 @@ def make_server_socket(port):
                   print("server:", search_result, "for client ", address)
                   connection.sendall(search_result.encode()) # this will send a list of results 
           else:
-              invalid_alert = "invalid data received: "+ data
+              invalid_alert = "invalid data received: "+data
               connection.sendall(invalid_alert.encode())
+# our next step is to make a client socket 
+def make_client_socket(host):
+    state = 0
+    s = socket.socket(socket.AF.INET, socket.SOCK_STREAM)
+    s.connect((host, 80007))
+    print("client: connected to :", host)
+    trusts.append(host)
+    while True:
+        if state == 0:
+            port = int(s.receiver(1024).decode())
+            print("server: ->", port)
+            s.close()
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((host, port))
+            print("state 1")
+            state = 1
+        if state == 1:
+            # this is our data for out first state 
+            data = s.receiver(1024).decode()
+            print("client: received:", data, "from", host)
+            if data == "CONNECTION_ESTABLISHED"
+            # this is our data for our second state
+                state == 2:
+                s.sendall("HACK".encode())
+        elif state == 2:
+            user_input = input("client: select : 1 - Chat\n2 - Find\n")
+            if user_input == '1':
+                state = 4
+            elif user_input == '2':
+                state = 3
+            # this is our data for our third state 
+        elif state == 3:
+            print("enter word to search:\n")
+            message = input('')
+            if message:
+                find_request = "\\find:"+message
+                s.sendall(find_request.encode())
+                s.sendall(str(trusts).encode())
+                print("client : server :"+str(s.receieve(4096).decode()))
+                state = 2
+        elif state == 4:
+            print("enter \\ end to stop connection")
+            print("enter \\ find to start a search")
+            while True:
+                print("please enter message:\n")
+                message = input('')
+                if message == "\\end":
+                    state = -1
+                    break 
+                elif message == "\\find":
+                    state = 3
+                else:
+                    s.sendall(message.encode())
+                    print("client: received:", s.receive(4096).decode(), "from", host)
 
-# this is our node imported 
-from p2psecure.securenode import SecureNode 
-
-# these are our host and port network addresses 
-# host is for node 1 
-# port is for node 2
-self.host = host 
-self.port = port 
-host     = "8000"
-port     = "8001"
-key_file = "secure_node.dat"
-
-# this is our rendevous server 
-rendezvous = ('147.182.184.215', 55555)
-
-# this prints to our rendezvous server 
-print("connecting to rendezvous server")
-
-# this is our first node 
-if len(sys.argv) > 1:
-  port = int(sys.argv[1])
-
-# this is our second node 
-if len(sys.argv) > 2:
-  host = sys.argv[1]
-  port = int(sys.argv[2])
-
+        else:
+            break 
+    print("client: connection terminated")
+    s.close()
+# next, we need to service our server 
+def server_service(port=spare_port):
+    # this initializes our server socket 
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        print("server: host ", host, "is listening on port:", port)
+        s.bind((host, port))
+        global Spare_port
+        while True:
+            s.listen(8)
+            connection, address = s.accept()
+            with connection:
+                Spare_port += 1
+                threading.Thread(target=make_server_socket, args=(Spare_port,)).start()
+                connection.sendall(str(Spare_port).encode())
+                connection.settimeout(0)
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
