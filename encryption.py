@@ -2,12 +2,20 @@
 # CECS 327 Semester Project 
 import sys
 import time 
+import queue 
 import getpass
 import socket 
 import threading 
 import ast
+import msvcrt
 sys.path.insert(0, '..')
 sys.path.insert(0, '../../python-p2p-network')
+
+# first off, we need to create our public ip address 
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+HOST = s.getsockname()[0]
+s.close() 
 
 # this is our node imported 
 from p2psecure.securenode import SecureNode 
