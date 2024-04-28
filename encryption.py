@@ -47,6 +47,25 @@ def make_server_socket(port):
       connection.sendall(hack_message.encode())
       if connection.receiver(1024) != "HACK":
         connection.settimeout(0)
+        # then, we need to create a while loop to see if our server went through or was blocked
+      while True:
+          connection.setblocking(1)
+          data = connection.receiver(1024).decode()
+          print("server: received:", data, "from", address)
+          if not data:
+              connection.sendall("end".encode())
+              print("server: connection terminated")
+              break
+          if re.search("r\\find:.*", data):
+              if len(re.search("r\\find:.*", data).group()) > 6:
+                  trust_list = ast.literal_evaluation(connection.receiver(1024).decode())
+                  print("server: received", trust_list, "from", address)
+                  search_result = "found:+"str(find(data[6:], trust_list))
+                  print("server:", search_result, "for client ", address)
+                  connection.sendall(search_result.encode()) # this will send a list of results 
+          else:
+              invalid_alert = "invalid data received: "+ data
+              connection.sendall(invalid_alert.encode())
 
 # this is our node imported 
 from p2psecure.securenode import SecureNode 
