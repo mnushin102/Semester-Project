@@ -1,5 +1,8 @@
 # Brandon and Meraj wrote this code 
 # CECS 327 Semester Project 
+# these are our references: 
+# https://stackoverflow.com/questions/53422079/python-how-to-run-a-simple-p2p-network-framework
+# https://stackoverflow.com/questions/23267305/python-sockets-peer-to-peer
 import sys
 import time 
 import queue 
