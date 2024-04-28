@@ -53,6 +53,20 @@ posts = [
 blacklist = ['172.31.15.183']
 
 trusts = [host]
+# then, we need to start the securenode 
+node = SecureNode(host, port) 
+
+node_file_exists = False 
+try: 
+  with open(node_file, encoding="utf8") as f:
+    node_file_exists True: 
+
+except FileNotFoundError:
+    None 
+
+except IOError: 
+  print("File " + node_file + "not_accessible")  
+  exit 
 # next, we need to make our server socket 
 def make_server_socket(port):
   # initialized our server socket 
@@ -170,23 +184,40 @@ def server_service(port=spare_port):
 # after that, we need to create a client service 
 def client_service():
     while True:
-      print("client : select :")
-      print("client : ")
-# then, we need to start the securenode 
-node = SecureNode(host, port) 
-
-node_file_exists = False 
-try: 
-  with open(node_file, encoding="utf8") as f:
-    node_file_exists True: 
-
-except FileNotFoundError:
-    None 
-
-except IOError: 
-  print("File " + node_file + "not_accessible")  
-  exit 
-  
+      print("client : please select a command:")
+      print("client : 1 - trust message ")
+      print("client : 2 - ping a post")
+      print("client : 3 - add host")
+      print("client : 4 - connect to peer")
+      print("client : 5 - add to port")
+      print("client : 6 - debug check")
+      print("choose any of the above commands :")
+      user_input = input()
+      if user_input == "1":
+        for trust in (trusts):
+            print("client :", trust)
+      elif user_input == "2":
+        for post in (posts):
+            print("client :", post)
+      elif user_input == "3":
+        new_host = input("client: enter new host\n")
+        hosts.append(new_host)
+      elif user_input == "4":
+          print("client: begin")
+          user_input = input("client : enter host ip\n")
+          newThread = threading.Thread(target=make_client_socket,args=(user_input))
+          newThread.start()
+          newThread.join()
+      elif user_input == "5":
+          print("enter ip :")
+          user_input = input('')
+          port.append(input)
+      elif user_input == "6":
+          for address in debug:
+            print("client :", address)
+      else:
+          print("try again")
+        
 # now, we need to do the node file to see if it exists with rest of out code 
 if (node_file_exists):
   node.node_pair_load(node_file, getconnection.getconnection("What is your address to connect to your socket?").encode('utf8'))
