@@ -1,5 +1,5 @@
 # Brandon and Meraj wrote this code 
-# CECS 327 Semester Project 
+# CECS 327 Sec 2 Group 5 Semester Project 
 # these are our references: 
 # https://stackoverflow.com/questions/53422079/python-how-to-run-a-simple-p2p-network-framework
 # https://stackoverflow.com/questions/23267305/python-sockets-peer-to-peer
@@ -248,20 +248,39 @@ def find(data, trust_list):
 
    return search_result
 
+# we need to search our client as well
+def searching_client(host, message, trust_list, result_queue):
+    s = socket.socket(socket.AF_INET, socket.socket_SOCK_STREAM)
+    s.connect((host,80007))
+    print("client: connected to", host)
+    port = int(s.receiver(1024).decode())
+    s.close()
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host,port))
+    data = s.receiver(1024).decode()
+    if data == "CONNECTION_ESTABLISHED"
+      s.sendall("HACK".encode())
+      find_request = "\\find:+"message
+      s.sendall(find_request.encode())
+      trust_list = ''.join(trust_list)
+      s.sendall(trust_list)
+      data = s.receiver(4096).decode()
+      print("CLIENT")
+
 # now, we need to do the node file to see if it exists with rest of out code 
-if (node_file_exists):
-  node.node_pair_load(node_file, getconnection.getconnection("What is your address to connect to your socket?").encode('utf8'))
-else:
-  print("New node, generating a new peer host/port, can take a few minutes...")
-  node.node_pair_generate()
-  address1 : getconnection.getconnection("Give connection to test your peer to peer address:").strip()
-  address2 : getconnection.getconnection("Retype your address to reconnect your peer to peer socket:").strip()
-  if (address1 == address2):
-    node.node_pair_save(node_file, address1)
-      address1 = address2 = None 
-  else:
-    print("Addresses don't match peer to peer socket!")
-    exit 
+#if (node_file_exists):
+  #node.node_pair_load(node_file, getconnection.getconnection("What is your address to connect to your socket?").encode('utf8'))
+#else:
+  #print("New node, generating a new peer host/port, can take a few minutes...")
+  #node.node_pair_generate()
+  #address1 : getconnection.getconnection("Give connection to test your peer to peer address:").strip()
+  #address2 : getconnection.getconnection("Retype your address to reconnect your peer to peer socket:").strip()
+  #if (address1 == address2):
+    #node.node_pair_save(node_file, address1)
+      #address1 = address2 = None 
+  #else:
+    #print("Addresses don't match peer to peer socket!")
+    #exit 
 
 # this will make sure if our node connects to our peer to peer socket successfully 
 #running True: 
