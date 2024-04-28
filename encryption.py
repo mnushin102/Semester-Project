@@ -90,6 +90,7 @@ def make_server_socket(port):
           else:
               invalid_alert = "invalid data received: "+data
               connection.sendall(invalid_alert.encode())
+            
 # our next step is to make a client socket 
 def make_client_socket(host):
     state = 0
@@ -149,11 +150,12 @@ def make_client_socket(host):
             break 
     print("client: connection terminated")
     s.close()
+  
 # next, we need to service our server 
 def server_service(port=spare_port):
     # this initializes our server socket 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        print("server: host ", host, "is listening on port:", port)
+        print("server: host: ", host, "is listening on port:", port)
         s.bind((host, port))
         global Spare_port
         while True:
@@ -164,6 +166,12 @@ def server_service(port=spare_port):
                 threading.Thread(target=make_server_socket, args=(Spare_port,)).start()
                 connection.sendall(str(Spare_port).encode())
                 connection.settimeout(0)
+
+# after that, we need to create a client service 
+def client_service():
+    while True:
+      print("client : select :")
+      print("client : ")
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
