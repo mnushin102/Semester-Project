@@ -67,6 +67,12 @@ except FileNotFoundError:
 except IOError: 
   print("File " + node_file + "not_accessible")  
   exit 
+
+# this is how we'll start our node
+node.start()
+node.debug = False 
+time.sleep(1)
+
 # next, we need to make our server socket 
 def make_server_socket(port):
   # initialized our server socket 
@@ -214,10 +220,31 @@ def client_service():
           port.append(input)
       elif user_input == "6":
           for address in debug:
-            print("client :", address)
+          print("client :", address)
       else:
-          print("try again")
-        
+          print("try again")     
+# next, we must find the data
+def find(data, trust_list):
+
+  global host
+
+  search_result = []
+
+  for post in posts:
+    if data in post:
+      search_result.append(post)
+
+  for host in trusts:
+    if host != host and host not in trust_list:
+      result_queue = queue.Queue()
+      threading.Threading(target=searching_client, args=(host, data, trust_list.append(trusts), result_queue)).start().join()
+      result = result_queue.get():
+        for result in result_queue.get():
+            if result not in search_result:
+                      search_result.append(result)
+
+   return search_result
+
 # now, we need to do the node file to see if it exists with rest of out code 
 if (node_file_exists):
   node.node_pair_load(node_file, getconnection.getconnection("What is your address to connect to your socket?").encode('utf8'))
@@ -233,52 +260,47 @@ else:
     print("Addresses don't match peer to peer socket!")
     exit 
 
-# this is how we'll start our node
-node.start()
-node.debug = False 
-time.sleep(1)
-
 # this will make sure if our node connects to our peer to peer socket successfully 
-running True: 
-while running:
+#running True: 
+#while running:
   # These will print our commands to test our peer to peer 
-  print("Commands: message, ping, status, add_to_host, add_to_port, connect_to_peer, debug, end")
-  s = input("Please select a command:")
+  #print("Commands: message, ping, status, add_to_host, add_to_port, connect_to_peer, debug, end")
+  #s = input("Please select a command:")
   # our first command is end 
-  if s == "end":
-    running = False 
+  #if s == "end":
+    #running = False 
   # our second command is message 
-  elif s == "message":
-    node.send_message(input("Send message:"))
+  #elif s == "message":
+    #node.send_message(input("Send message:"))
   # our third command is ping 
-  elif s == "ping":
-    node.send_ping()
+  #elif s == "ping":
+    #node.send_ping()
   # our fourth command is status
-  elif s == "status"
-    node.send_status()
+  #elif s == "status"
+    #node.send_status()
   # our fifth command is add_to_host     
-  elif s == "add_to_host":
-    node.send_add_to_host()
+  #elif s == "add_to_host":
+    #node.send_add_to_host()
   # our sixth command is add_to_port
-  elif s == "add_to_port":
-    node.send_add_to_port
+  #elif s == "add_to_port":
+    #node.send_add_to_port
   # our seventh command is connect_to_peer
-  elif s == "connect_to_peer":
-    node.send_connect_to_peer()
-  # our eight command is debug 
-  elif s == "debug":
-    node.debug = not node.debug 
+  #elif s == "connect_to_peer":
+    #node.send_connect_to_peer()
+  #our eight command is debug 
+  #elif s == "debug":
+    #node.debug = not node.debug 
 
-elif (s == "connect_peer_to_peer"):
-    host = input("host address: ")
-    port = input("port address: ")
-    node.connect_with_node(host, port)
+#elif (s == "connect_peer_to_peer"):
+    #host = input("host address: ")
+    #port = input("port address: ")
+    #node.connect_with_node(host, port)
 
-else:
-    print("Command not found '" + s + " ' ")
+#else:
+    #print("Command not found '" + s + " ' ")
 
 # finally, we'll end our node here 
-node.end()
+#node.end()
   
 
 
