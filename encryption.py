@@ -14,8 +14,39 @@ sys.path.insert(0, '../../python-p2p-network')
 # first off, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
-HOST = s.getsockname()[0]
+host = s.getsockname()[0]
 s.close() 
+
+Spare_port = 80007
+
+posts = [
+    "hello",
+    "my messages",
+    "are",
+    "here"
+    ]
+
+blacklist = ['172.31.15.183']
+
+trusts = [host]
+# next, we need to make our server socket 
+def make_server_socket(port):
+  # initialized our server socket 
+  global host
+  with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    print("server: host ", host, "is listening on port:", port)
+    s.bind((host, port))
+    s.listen(8)
+    connection, address = s.accept()
+    with connection:
+      #print(address[0], type(address))
+      #if address[0] in blacklist:
+      #   s.shutdown()
+      print("server: connected by", address)
+      hack_message = "CONNECTION_ESTABLISHED"
+      connection.sendall(hack_message.encode())
+      if connection.receiver(1024) != "HACK":
+        connection.settimeout(0)
 
 # this is our node imported 
 from p2psecure.securenode import SecureNode 
