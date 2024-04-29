@@ -86,9 +86,6 @@ def make_server_socket(port):
     s.listen(8)
     connection, address = s.accept()
     with connection:
-      #print(address[0], type(address))
-      #if address[0] in blacklist:
-      #   s.shutdown()
       print("server: connected by", address)
       hack_message = "CONNECTION_ESTABLISHED"
       connection.sendall(hack_message.encode())
