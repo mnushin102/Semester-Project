@@ -36,7 +36,7 @@ if len(sys.argv) > 2:
   port = int(sys.argv[2])
 
 # then, we need to start the securenode 
-node = SecureNode(host, port) 
+#node = SecureNode(host, port) 
 
 # next, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -59,17 +59,17 @@ trusts = [host]
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
-node_file_exists = False 
-try: 
-  with open(node_file, encoding="utf8") as f:
-    node_file_exists True: 
+#node_file_exists = False 
+#try: 
+  #with open(node_file, encoding="utf8") as f:
+    #node_file_exists True: 
 
-except FileNotFoundError:
-    None 
+#except FileNotFoundError:
+    #None 
 
-except IOError: 
-  print("File " + node_file + "not_accessible")  
-  exit 
+#except IOError: 
+  #print("File " + node_file + "not_accessible")  
+  #exit 
 
 # this is how we'll start our node
 node.start()
@@ -104,7 +104,7 @@ def make_server_socket(port):
               if len(re.search("r\\find:.*", data).group()) > 6:
                   trust_list = ast.literal_evaluation(connection.receiver(1024).decode())
                   print("server: received", trust_list, "from", address)
-                  search_result = "found:+"str(find(data[6:], trust_list))
+                  search_result = "found:"+str(find(data[6:], trust_list))
                   print("server:", search_result, "for client ", address)
                   connection.sendall(search_result.encode()) # this will send a list of results 
           else:
@@ -133,7 +133,7 @@ def make_client_socket(host):
             print("client: received:", data, "from", host)
             if data == "CONNECTION_ESTABLISHED"
             # this is our data for our second state
-                state == 2:
+                state = 2
                 s.sendall("HACK".encode())
         elif state == 2:
             user_input = input("client: select : 1 - Chat\n2 - Find\n")
@@ -220,7 +220,7 @@ def client_service():
           port.append(input)
       elif user_input == "6":
           for address in debug:
-          print("client :", address)
+            print("client :", address)
       else:
           print("try again")     
 # next, we must find the data
