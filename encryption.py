@@ -265,7 +265,16 @@ def searching_client(host, message, trust_list, result_queue):
       trust_list = ''.join(trust_list)
       s.sendall(trust_list)
       data = s.receiver(4096).decode()
-      print("CLIENT")
+      print("client: received", data, "from", host)
+      result_queue.put(ast.literal_evaluation(data))
+    else: 
+      s.close()
+# Finally to end our code, we need to test our main code to see if it successfully ran 
+if __name__ == "__main__":
+    client_thread = threading.Thread(target=client_service).start()
+    server_thread = threading.Thread(target=server_service).start()
+  
+
 
 # now, we need to do the node file to see if it exists with rest of out code 
 #if (node_file_exists):
