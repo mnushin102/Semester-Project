@@ -229,7 +229,7 @@ def client_service():
           port.append(input)
       elif user_input == "6":
           for address in debug:
-            print("client :", address)
+            print("client :", debug)
       else:
           print("try again")     
 # next, we must find the data
