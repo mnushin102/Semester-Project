@@ -21,16 +21,16 @@ sys.path.insert(0, '../../python-p2p-network')
 # we need to define our first class which is encryption 
 class Encryption:
   def __init__(self, host, port):
-  # just like the peer object, we need to initialize both the host and port 
-  self.host = host 
-  self.port = port 
-  host     = "8000"
-  port     = "8001"
-  # then, we need to create a socket object using TCP/IP
-  self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-  # we need a list to track our connections 
-  self.connections = [] 
-  key_file = "secure_node.dat"
+    # just like the peer object, we need to initialize both the host and port 
+    self.host = host 
+    self.port = port 
+    host     = "8000"
+    port     = "8001"
+    # then, we need to create a socket object using TCP/IP
+    self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # we need a list to track our connections 
+    self.connections = [] 
+    key_file = "secure_node.dat"
 
 # this is our node imported 
 from p2psecure.securenode import SecureNode 
