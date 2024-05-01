@@ -29,9 +29,9 @@ while True:
 
     # now, we need to create both our clients 
     client1 = clients.pop()
-    client1_address client1_port = client1
+    client1_address , client1_port = client1
     client2 = clients.pop()
-    client2_address client2_port = client2
+    client2_address , client2_port = client2
 
     # finally, we need to test both our clients to see if they successfully sent a message from the server 
     sock.sendto('{} {} {}'.format(client1_address, client1_port, known_port).encode(), client2)
