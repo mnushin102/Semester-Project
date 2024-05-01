@@ -59,13 +59,13 @@ trusts = [host]
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
-node_file_exists = False 
-try: 
-  with open(node_file, encoding="utf8") as f:
-    node_file_exists True: 
+#node_file_exists = False 
+#try: 
+  #with open(node_file, encoding="utf8") as f:
+    #node_file_exists True: 
 
-except FileNotFoundError:
-    None 
+#except FileNotFoundError:
+    #None 
 
 #except IOError: 
   #print("File " + node_file + "not_accessible")  
@@ -219,8 +219,8 @@ def client_service():
           user_input = input('')
           port.append(input)
       elif user_input == "6":
-          for address in debug:
-          print("client :", address)
+          for debug in debug:
+            print("client :", debug)
       else:
           print("try again")     
 # next, we must find the data
