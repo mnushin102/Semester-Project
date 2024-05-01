@@ -67,18 +67,6 @@ trusts = [host]
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
-#node_file_exists = False 
-#try: 
-  #with open(node_file, encoding="utf8") as f:
-    #node_file_exists True: 
-
-#except FileNotFoundError:
-    #None 
-
-#except IOError: 
-  #print("File " + node_file + "not_accessible")  
-  #exit 
-
 # this is how we'll start our node
 node.start()
 node.debug = False 
