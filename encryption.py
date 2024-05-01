@@ -11,17 +11,25 @@ import socket
 import threading 
 import ast
 import msvcrt
+import time
 sys.path.insert(0, '..')
 sys.path.insert(0, '../../python-p2p-network')
-
 # these are our host and port network addresses 
 # host is for node 1 
 # port is for node 2
-self.host = host 
-self.port = port 
-host     = "8000"
-port     = "8001"
-key_file = "secure_node.dat"
+# we need to define our first class which is encryption 
+class Encryption:
+   def __init__(self, host, port):
+      # just like the peer object, we need to initialize both the host and port 
+      self.host = host 
+      self.port = port 
+      host     = "8000"
+      port     = "8001"
+      # then, we need to create a socket object using TCP/IP
+      self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+      # we need a list to track our connections 
+      self.connections = [] 
+      key_file = "secure_node.dat"
 
 # this is our node imported 
 from p2psecure.securenode import SecureNode 
@@ -59,17 +67,17 @@ trusts = [host]
 # then, we need to start the securenode 
 node = SecureNode(host, port) 
 
-node_file_exists = False 
-try: 
-  with open(node_file, encoding="utf8") as f:
-    node_file_exists True:
+#node_file_exists = False 
+#try: 
+  #with open(node_file, encoding="utf8") as f:
+    #node_file_exists True:
 
-except FileNotFoundError:
-    None 
+#except FileNotFoundError:
+    #None 
 
-except IOError: 
-  print("File " + node_file + "not_accessible")  
-  exit 
+#except IOError: 
+  #print("File " + node_file + "not_accessible")  
+  #exit 
 
 # this is how we'll start our node
 node.start()
@@ -114,7 +122,7 @@ def make_server_socket(port):
 # our next step is to make a client socket 
 def make_client_socket(host):
     state = 0
-    s = socket.socket(socket.AF.INET, socket.SOCK_STREAM)
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, 80007))
     print("client: connected to :", host)
     trusts.append(host)
@@ -172,7 +180,7 @@ def make_client_socket(host):
     s.close()
   
 # next, we need to service our server 
-def server_service(port=spare_port):
+def server_service(port):
     # this initializes our server socket 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("server: host: ", host, "is listening on port:", port)
@@ -207,7 +215,7 @@ def client_service():
             print("client :", post)
       elif user_input == "3":
         new_host = input("client: enter new host\n")
-        hosts.append(new_host)
+        host.append(new_host)
       elif user_input == "4":
           print("client: begin")
           user_input = input("client : enter host ip\n")
@@ -219,8 +227,8 @@ def client_service():
           user_input = input('')
           port.append(input)
       elif user_input == "6":
-          for address in debug:
-            print("client :", address)
+          for debug in (debug):
+            print("client :", debug)
       else:
           print("try again")     
 # next, we must find the data
@@ -247,7 +255,7 @@ def find(data, trust_list):
 
 # we need to search our client as well
 def searching_client(host, message, trust_list, result_queue):
-    s = socket.socket(socket.AF_INET, socket.socket_SOCK_STREAM)
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host,80007))
     print("client: connected to", host)
     port = int(s.receiver(1024).decode())
