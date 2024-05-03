@@ -4,7 +4,7 @@
 
 # In this project, we're going to select a topic that relates to distributed network computing 
 
-# Our selected topic is computer networking
+# Our selected topic is Peer-to-Peer Modeling and Encryption. 
 
 # Our project should encompass software development, meticulous experimentation, and through analysis of outcomes. 
 
