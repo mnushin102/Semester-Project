@@ -28,6 +28,14 @@ Introduction
 - Allow these nodes to send messages between each other if successful. 
 - Make an encryption method to secure messages sent from nodes.
 
+Our Design
+
+Diagrams and Figures
+We chose this diagram because there are multiple computers connecting at the same time with the nodes that are going to establish a connection between them.
+
+
+Background 
+
 Cyber security is getting more important as technology improves and we plan to investigate security protocols for distributed networks. This could include developing and implementing an encryption method, authentication protocols, or intrusion detection systems against unauthorized access.(or all 3).
  So we would have to set up our own distributed system that offers communication across nodes and have test cases for when someone is allowed to send a message or maybe turn on and off a node or create another. Maybe we can create some peer-to-peer model, can use network time protocol to synch all nodes to the same time, can use Machine queuing telemetry transport for messaging and develop something for node authentication, was looking at something called pki but didn't do too much research and some sort of detection system to see if certain nodes should exist, something that monitors the traffic on our distributed system and fix anomalies.
 
@@ -36,6 +44,9 @@ Cyber security is getting more important as technology improves and we plan to i
 We’re going to need to understand cyber security nowadays because distributed networks protocols have to do a lot with this. Encryptions are very well developed if done correctly using a method, authentication protocols or even intrusion detection systems against unauthorized access. In order to do this, we need to create our own distributed system from scratch by planning communication with enough nodes to send a message to the receiver. We’re going to come up with some plan here to figure out a connection to build a peer-to-peer model. In this case, we need to understand network protocols because peer-to-peer models can determine if all nodes are synced at once. Finally, machine querying can distinguish a connection between the network traffic from the nodes to the server if it’s done successfully. 
 
 - Let me know if this is sufficient because i don’t know if this explains well regarding our plan - Brandon
+
+
+Implementation  
 
 Peer-to-peer model plan: 
 Synch nodes using network time protocol.
@@ -204,7 +215,8 @@ Menu system can create a server and that server has options of sending or receiv
 Research encryption method that doesn't have a lot of previous usage
 Commands will help us how to create a menu system through powershell 
 
-Article: https://www.cloudflare.com/learning/ssl/what-is-encryption/#:~:text=The%20two%20main%20kinds%20of,for%20both%20encryption%20and%20decryption.
+These are our references: 
+https://www.cloudflare.com/learning/ssl/what-is-encryption/#:~:text=The%20two%20main%20kinds%20of,for%20both%20encryption%20and%20decryption.
 https://www.codecademy.com/article/important-powershell-commands-for-cybersecurity-analysts
 https://www.youtube.com/watch?v=FMnW4D4r_E4
 https://support.workiva.com/hc/en-us/articles/360036005711-Encryption-commands
@@ -214,3 +226,5 @@ https://support.workiva.com/hc/en-us/articles/360036005711-Encryption-commands
 
 https://security.stackexchange.com/questions/107459/encryption-in-peer-to-peer-chat 
 
+Conclusion 
+Finally, this explains how peer-to-peer is critically important to understand with a reliable connection of networks to communicate altogether. Understanding peer to peer is critically important because it can provide an opportunity for those who’re willing to learn diverse perspectives which leads to a better understanding of the subject matter. Peer to Peer is also specified as individuals using computers to share information directly without depending on a server.  
