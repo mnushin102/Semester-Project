@@ -10,6 +10,8 @@
 
 # If this is possible, we need to steer clear of naturally-distribution challenges; we must aim for something that presents a substantial complexity. 
 
+Introduction
+
 # This is our approach: 
 - For Computer Networking, we decided to research this topic because we were interested in how we’re going to connect all nodes using P2P.
 - A Peer-to-Peer model will let the nodes directly communicate with one another
