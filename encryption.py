@@ -11,7 +11,6 @@ import socket
 import threading 
 import ast
 import msvcrt
-import time
 sys.path.insert(0, '..')
 sys.path.insert(0, '../../python-p2p-network')
 # these are our host and port network addresses 
