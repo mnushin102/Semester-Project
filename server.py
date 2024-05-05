@@ -7,7 +7,7 @@ import socket
 known_port = 80002
 
 # this is how we start our sockets 
-sock = socket.socket(socket.AF_IFNET, socket.SOCK_DGRAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind(('0.0.0.0', 88888))
 
 # we need to make two while loops which are both true because we need to test if the address is going to the server 
