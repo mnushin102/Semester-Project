@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "p2p": "^0.10.2",
+    "p2p-manager": "^0.1.0"
+  }
+}
