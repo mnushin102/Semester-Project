@@ -4,28 +4,37 @@
 
 # In this project, we're going to select a topic that relates to distributed network computing 
 
-# Our selected topic is computer networking
+# Our selected topic is Peer-to-Peer Modeling and Encryption. 
 
 # Our project should encompass software development, meticulous experimentation, and through analysis of outcomes. 
 
 # If this is possible, we need to steer clear of naturally-distribution challenges; we must aim for something that presents a substantial complexity. 
 
+Introduction
+
 # This is our approach: 
-- For Computer Networking, we decided to research this topic because we were both interested how we're going to connect all nodes between Computer A and Computer B.
-- Establishing these connections is going to allow users to communicate easily through the nodes.
-- After these communications are established, they will determine if the nodes are successfully linked to our router, server, firewall and internet.
+- For Computer Networking, we decided to research this topic because we were interested in how we’re going to connect all nodes using P2P.
+- A Peer-to-Peer model will let the nodes directly communicate with one another
+- Establishing these connections allows nodes to send messages across a distributed and decentralized system.
+- After these connections are established, we will sync the nodes, then implement and improve an encryption method to secure information sent across the system. 
 
 # This is our purpose: 
 - The goal of this topic is to share resources through a reliable communication formed between multiple networks within a linked connection amongst each other.
-- Another purpose of this project is to share different types of networks such as Local Area Network, Wide Area Network, Metropolitan Area Network, and Wireless Network. These networks enchance the communication with two or more nodes in which these will all be linked using wires to share data.
-- We are trying to also understand the 7 layers of the OSI model have a very important purpose with computer networking and that it uses layers for visual representation of how a networking system functions. These layers have a protocol which can be interchanged very comfortably since model modifications don't influence other layers that change significantly.
-- Cyber security has become such an important factor in everyday computer usage, yet there isn’t much research done on how to encrypt data across networks and we want to figure out how to do this. 
+- To guarantee a reliable and safe way for the nodes to communicate we plan to use an encryption method to hide sensitive information and communication between preapproved nodes. 
+- As decentralized models become more popular, we want to explore cyber security in a peer-to-peer model, we want to test and improve an encryption method that can be used for peer-to-peer systems. 
 
 # This is our activity:
-- Build a distributed system allowing multiple nodes to connect to a server.
+- Build a distributed system using peer-to-peer model allowing multiple nodes to connect to each other. 
 - Allow these nodes to send messages between each other if successful. 
 - Make an encryption method to secure messages sent from nodes.
-- Have an encryption method send messages to see if nodes successfully went through.
+
+Our Design
+
+Diagrams and Figures
+We chose this diagram because there are multiple computers connecting at the same time with the nodes that are going to establish a connection between them.
+
+
+Background 
 
 Cyber security is getting more important as technology improves and we plan to investigate security protocols for distributed networks. This could include developing and implementing an encryption method, authentication protocols, or intrusion detection systems against unauthorized access.(or all 3).
  So we would have to set up our own distributed system that offers communication across nodes and have test cases for when someone is allowed to send a message or maybe turn on and off a node or create another. Maybe we can create some peer-to-peer model, can use network time protocol to synch all nodes to the same time, can use Machine queuing telemetry transport for messaging and develop something for node authentication, was looking at something called pki but didn't do too much research and some sort of detection system to see if certain nodes should exist, something that monitors the traffic on our distributed system and fix anomalies.
@@ -35,6 +44,9 @@ Cyber security is getting more important as technology improves and we plan to i
 We’re going to need to understand cyber security nowadays because distributed networks protocols have to do a lot with this. Encryptions are very well developed if done correctly using a method, authentication protocols or even intrusion detection systems against unauthorized access. In order to do this, we need to create our own distributed system from scratch by planning communication with enough nodes to send a message to the receiver. We’re going to come up with some plan here to figure out a connection to build a peer-to-peer model. In this case, we need to understand network protocols because peer-to-peer models can determine if all nodes are synced at once. Finally, machine querying can distinguish a connection between the network traffic from the nodes to the server if it’s done successfully. 
 
 - Let me know if this is sufficient because i don’t know if this explains well regarding our plan - Brandon
+
+
+Implementation  
 
 Peer-to-peer model plan: 
 Synch nodes using network time protocol.
@@ -203,7 +215,8 @@ Menu system can create a server and that server has options of sending or receiv
 Research encryption method that doesn't have a lot of previous usage
 Commands will help us how to create a menu system through powershell 
 
-Article: https://www.cloudflare.com/learning/ssl/what-is-encryption/#:~:text=The%20two%20main%20kinds%20of,for%20both%20encryption%20and%20decryption.
+These are our references: 
+https://www.cloudflare.com/learning/ssl/what-is-encryption/#:~:text=The%20two%20main%20kinds%20of,for%20both%20encryption%20and%20decryption.
 https://www.codecademy.com/article/important-powershell-commands-for-cybersecurity-analysts
 https://www.youtube.com/watch?v=FMnW4D4r_E4
 https://support.workiva.com/hc/en-us/articles/360036005711-Encryption-commands
@@ -213,3 +226,5 @@ https://support.workiva.com/hc/en-us/articles/360036005711-Encryption-commands
 
 https://security.stackexchange.com/questions/107459/encryption-in-peer-to-peer-chat 
 
+Conclusion 
+Finally, this explains how peer-to-peer is critically important to understand with a reliable connection of networks to communicate altogether. Understanding peer to peer is critically important because it can provide an opportunity for those who’re willing to learn diverse perspectives which leads to a better understanding of the subject matter. Peer to Peer is also specified as individuals using computers to share information directly without depending on a server.  
