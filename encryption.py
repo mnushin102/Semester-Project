@@ -30,20 +30,6 @@ class Encryption:
     self.connections = [] 
     key_file = "secure_node.dat"
 
-# this is our node imported 
-from p2psecure.securenode import SecureNode 
-
-# this is our first node 
-if len(sys.argv) > 1:
-  port = int(sys.argv[1])
-
-# this is our second node 
-if len(sys.argv) > 2:
-  host = sys.argv[1]
-  port = int(sys.argv[2])
-
-# then, we need to start the securenode 
-node = SecureNode(host, port) 
 
 # next, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
