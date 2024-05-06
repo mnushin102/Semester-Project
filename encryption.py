@@ -49,13 +49,6 @@ posts = [
 blacklist = ['172.31.15.183']
 
 trusts = [host]
-# then, we need to start the securenode 
-node = SecureNode(host, port) 
-
-# this is how we'll start our node
-node.start()
-node.debug = False 
-time.sleep(1)
 
 # next, we need to make our server socket 
 def make_server_socket(port):
