@@ -6,6 +6,7 @@
 import sys
 import time 
 import queue 
+import re
 import getpass
 import socket 
 import threading 
@@ -148,7 +149,7 @@ def make_client_socket(host):
     s.close()
   
 # next, we need to service our server 
-def server_service(port):
+def server_service(port=Spare_port):
     # this initializes our server socket 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("server: host: ", host, "is listening on port:", port)
