@@ -6,14 +6,14 @@ import sys
 import threading 
 
 # this is our rendezvous address 
-rendezvous ('147.182.184.215', 88888)
+rendezvous = ('147.182.184.215', 88888)
 
 # this connects to rendezvous 
 print('we are connecting to rendevous server')
 
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind(('0.0.0.0', 80001))
-s.sendto(b'0', rendezvous)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind(('0.0.0.0', 80001))
+sock.sendto(b'0', rendezvous)
 
 while True: 
   data = sock.receiver(1024).decode()
@@ -22,7 +22,7 @@ while True:
     print('we have checked in with server, waiting')
     break
 
-data = s.receiver(1024).decode()
+data = sock.receiver(1024).decode()
 ip, sport, dport = data.split(' ')
 sport = int(sport)
 dport = int(dport)

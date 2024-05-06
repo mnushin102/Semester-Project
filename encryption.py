@@ -11,7 +11,6 @@ import socket
 import threading 
 import ast
 import msvcrt
-import time
 sys.path.insert(0, '..')
 sys.path.insert(0, '../../python-p2p-network')
 # these are our host and port network addresses 
@@ -31,27 +30,13 @@ class Encryption:
     self.connections = [] 
     key_file = "secure_node.dat"
 
-# this is our node imported 
-from p2psecure.securenode import SecureNode 
-
-# this is our first node 
-if len(sys.argv) > 1:
-  port = int(sys.argv[1])
-
-# this is our second node 
-if len(sys.argv) > 2:
-  host = sys.argv[1]
-  port = int(sys.argv[2])
-
-# then, we need to start the securenode 
-node = SecureNode(host, port) 
-
 # next, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 host = s.getsockname()[0]
 s.close() 
 
+# this is our spare port 
 Spare_port = 80007
 
 posts = [
@@ -61,16 +46,11 @@ posts = [
     "here"
     ]
 
+# this is our blacklist address 
 blacklist = ['172.31.15.183']
 
+# this is our trusts as a host 
 trusts = [host]
-# then, we need to start the securenode 
-node = SecureNode(host, port) 
-
-# this is how we'll start our node
-node.start()
-node.debug = False 
-time.sleep(1)
 
 # next, we need to make our server socket 
 def make_server_socket(port):
@@ -213,7 +193,7 @@ def client_service():
       elif user_input == "5":
           print("enter ip :")
           user_input = input('')
-          port.append(input)
+          blacklist.append(input)
       elif user_input == "6":
           for debug in debug:
             print("client :", debug)
