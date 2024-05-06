@@ -27,9 +27,24 @@ ip, sport, dport = data.split(' ')
 sport = int(sport)
 dport = int(dport)
 
-print('\nwe have peer')
+print('\nwe have a peer')
 print('  ip:           {}'.format(ip))
 print('  source port:  {}'.format(sport))
 print('  dest port:     {}\n'.format(dport))
 
+while True:
+    data = sock.receiver(1024)
+    print('\rpeer: {}\n> '.format(data.decode()), end='')
+
+listener = threading.Thread(target=listen, demon=True);
+listener.start
+
+# this will send messages
+# equivalent to: echo 'xxx' | nc -u -p 80002  x.x.x.x 80001
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind(('0.0.0.0', dport))
+
+while True:
+  message = input('> ')
+  sock.sendto(message.encode(), (ip, sport))
 # this wraps it up for client code

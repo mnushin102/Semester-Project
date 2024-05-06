@@ -30,6 +30,10 @@ class Encryption:
     self.connections = [] 
     key_file = "secure_node.dat"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6ab9c0f4ffc90b82e5b801b3daf1c557cd40c29
 # next, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
