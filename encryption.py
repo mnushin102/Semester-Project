@@ -6,6 +6,7 @@
 import sys
 import time 
 import queue 
+import re
 import getpass
 import socket 
 import threading 
@@ -30,10 +31,6 @@ class Encryption:
     self.connections = [] 
     key_file = "secure_node.dat"
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b6ab9c0f4ffc90b82e5b801b3daf1c557cd40c29
 # next, we need to create our public ip address 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
@@ -80,8 +77,8 @@ def make_server_socket(port):
               connection.sendall("end".encode())
               print("server: connection terminated")
               break
-          if re.search("r\\find:.*", data):
-              if len(re.search("r\\find:.*", data).group()) > 6:
+          if re.search(r"\\find:.*", data):
+              if len(re.search(r"\\find:.*", data).group()) > 6:
                   trust_list = ast.literal_evaluation(connection.receiver(1024).decode())
                   print("server: received", trust_list, "from", address)
                   search_result = "found:"+str(find(data[6:], trust_list))
@@ -152,7 +149,7 @@ def make_client_socket(host):
     s.close()
   
 # next, we need to service our server 
-def server_service(port):
+def server_service(port=Spare_port):
     # this initializes our server socket 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("server: host: ", host, "is listening on port:", port)
