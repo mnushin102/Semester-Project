@@ -128,6 +128,7 @@ def make_client_socket(host):
                 s.sendall(str(trusts).encode())
                 print("client : server :"+str(s.receieve(4096).decode()))
                 state = 2
+            # this is our data for our fourth state 
         elif state == 4:
             print("enter \\ end to stop connection")
             print("enter \\ find to start a search")
@@ -164,15 +165,21 @@ def server_service(port=Spare_port):
                 connection.sendall(str(Spare_port).encode())
                 connection.settimeout(0)
 
-# after that, we need to create a client service 
+# after that, we need to create a client service with commands 
 def client_service():
     while True:
       print("client : please select a command:")
+      # this is command 1
       print("client : 1 - trust message ")
+      # this is command 2 
       print("client : 2 - ping a post")
+      # this is command 3
       print("client : 3 - add host")
+      # this is command 4
       print("client : 4 - connect to peer")
+      # this is command 5
       print("client : 5 - add to port")
+      # this is command 6
       print("client : 6 - debug check")
       print("choose any of the above commands :")
       user_input = input()
