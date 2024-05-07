@@ -38,7 +38,7 @@ host = s.getsockname()[0]
 s.close() 
 
 # this is our spare port 
-Spare_port = 80007
+Spare_port = 65535
 
 posts = [
     "hello",
