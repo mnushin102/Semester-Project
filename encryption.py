@@ -190,8 +190,8 @@ def client_service():
         for post in (posts):
             print("client :", post)
       elif user_input == "3":
-        new_host = input("client: enter new host\n")
-        new_host(new_host)
+        new_post = input("client: enter new host\n")
+        posts.append(new_post)
       elif user_input == "4":
           print("client: begin")
           user_input = input("client : enter host ip\n")
