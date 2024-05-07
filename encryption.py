@@ -203,7 +203,7 @@ def client_service():
           user_input = input('')
           blacklist.append(input)
       elif user_input == "6":
-          for debug in debug:
+          for debug in blacklist:
             print("client :", debug)
       else:
           print("try again")     
