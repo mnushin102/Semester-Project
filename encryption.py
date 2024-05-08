@@ -196,8 +196,6 @@ def client_service():
           print("client: begin")
           user_input = input("client : enter host ip\n")
           newThread = threading.Thread(target=make_client_socket,args=(user_input))
-          newThread.start()
-          newThread.join()
       elif user_input == "5":
           print("enter ip :")
           user_input = input('')
